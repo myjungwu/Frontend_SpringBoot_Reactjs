@@ -27,7 +27,11 @@ class ListEmployeeComponent extends Component {
 
     componentDidMount(){
         EmployeeService.getEmployees().then((res) => {
+            console.log(res.data);
             this.setState({ employees: res.data});
+        }).catch(error => {
+            console.log("Error Occurred ");
+            console.log(error);
         });
     }
 

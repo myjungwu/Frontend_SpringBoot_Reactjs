@@ -25,10 +25,10 @@ RUN npm run build
 FROM nginx:1.20.1
 
 # Remove default nginx static resources
-#RUN rm /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/conf.d/default.conf
 
 #copies React to the container directory
-#COPY nginx/nginx.conf /etc/nginx/conf.d
+COPY nginx/nginx.conf /etc/nginx/conf.d
 
 # Set working directory to nginx resources directory
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
